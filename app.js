@@ -3,8 +3,10 @@ var express = require( 'express' );
 var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes/');
+var bodyParser = require('body-parser')
 
 
+//Setup server
 var app = express();
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
@@ -15,6 +17,8 @@ swig.setDefaults({cache: false});
 
 // Log server activity
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 app.use('/', routes);

@@ -6,6 +6,7 @@ var data = [];
 var add = function (name, text) {
   var id = generateId(name, text);
 	data.push({ name: name, text: text , id:id });
+  return id;
 
 };
 
@@ -50,3 +51,4 @@ var getFakeTweet = function() {
 for(var i=0; i<10; i++) {
   	module.exports.add( getFakeName(), getFakeTweet() );
 }
+
