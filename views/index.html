@@ -11,12 +11,12 @@
       	<b>Your Name</b><br>
       	∞ followers
 	   	{% if showForm %}
-			<form action="/submit" method="POST">
+			<form id = "submit_tweet" action="/submit" method="POST">
 			    <label for="name_field">Name:</label>
 			    <input name="name" type="text" id="name_field" />
 			    <br>
 		    	<label for="text_field">Text:</label>
-		    	<textarea name="text" type="text" id="text_field" style="width: 250px; height: 4em"> </textarea>
+		    	<textarea form = "submit_tweet" name="text" type="text" id="text_field" style="width: 250px; resize:none;"> </textarea>
 
 		    	<input type="submit" value="Submit" />
 			</form>
