@@ -58,7 +58,9 @@ code {
 .content .by {
   font-weight: bold;
 }
+h3 {
+  padding-left: -4em;
+}
 ul{
   list-style-type: none;
-  margin-left: -4em;
 }

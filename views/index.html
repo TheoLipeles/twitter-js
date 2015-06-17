@@ -12,14 +12,17 @@
       ∞ followers
     </div>
     <div class="col-md-9">
+    <h2> Tweet Stream </h2>
+    <br>
     	<ul>
 	      <!-- display tweets here -->
 	      {% for tweet in tweets %}
-	        <li><strong>{{tweet.name}}</strong><br>{{tweet.text}}<br> <a href='#'> Re-tweet </a></li><br>
+	        <li><strong><a href="/users/{{tweet.name}}">{{tweet.name}}</a></strong><br>{{tweet.text}}<br> <a href='#'> Re-tweet </a></li><br>
 	      {% endfor %}
       	</ul>
     </div>
   </div>
+
     
 {% endblock %}
 
