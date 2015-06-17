@@ -4,7 +4,12 @@ var _ = require('underscore');
 var data = [];
 
 var add = function (name, text) {
+<<<<<<< HEAD
   data.push({ name: name, text: text, id: new Buffer(text)});
+=======
+	var id = generateId(name, text);
+	data.push({ name: name, text: text , id:id });
+>>>>>>> origin
 };
 
 var list = function () {
@@ -20,6 +25,15 @@ module.exports = {
 	list: list,
 	find: find
 };
+
+var generateId = function(name, text) {
+    var sum = 0;
+    var string = name + text
+    for (var i = 0; i < string.length; i++) {
+        sum += string.charCodeAt(i);
+    }
+    return sum % 1000;
+}
 
 var randArrayEl = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -37,5 +51,5 @@ var getFakeTweet = function() {
 };
 
 for(var i=0; i<10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+  	module.exports.add( getFakeName(), getFakeTweet() );
 }
