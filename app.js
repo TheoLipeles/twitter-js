@@ -19,10 +19,11 @@ app.use(morgan("dev"));
 app.get('/', function(request, response){
 	response.send("Hello!");
 })
-app.get('/views', function(request, response){
+app.get('/views', function(request, response, next){
 	var people = [{name: "Full"}, {name: "Stacker"}, {name: "Son"}];
 	response.render('index.html', {title: "Hall of Fame", people: people});
 	//response.send("Welcome to views");
+
 })
 
 app.listen(3000, function() {
