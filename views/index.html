@@ -3,13 +3,24 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>{{title}}</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-      <b>Your Name</b><br>
-      ∞ followers
+      	<img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
+      	<b>Your Name</b><br>
+      	∞ followers
+	   	{% if showForm %}
+			<form action="/submit" method="POST">
+			    <label for="name_field">Name:</label>
+			    <input name="name" type="text" id="name_field" />
+			    <br>
+		    	<label for="text_field">Text:</label>
+		    	<textarea name="text" type="text" id="text_field" style="width: 250px; height: 4em"> </textarea>
+
+		    	<input type="submit" value="Submit" />
+			</form>
+		{% endif %}
     </div>
     <div class="col-md-9">
     <h2> Tweet Stream </h2>
@@ -17,7 +28,7 @@
     	<ul>
 	      <!-- display tweets here -->
 	      {% for tweet in tweets %}
-	        <li><strong><a href="/users/{{tweet.name}}">{{tweet.name}}</a></strong><br>{{tweet.text}}<br> <a href='#'> Re-tweet </a></li><br>
+	        <li><strong><a href="/users/{{tweet.name}}">{{tweet.name}}</a></strong><br>{{tweet.text}} <a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{ seeMore }}</a><br> <a href='#'> Re-tweet </a></li><br>
 	      {% endfor %}
       	</ul>
     </div>
