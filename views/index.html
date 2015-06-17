@@ -12,8 +12,8 @@
       	∞ followers
 	   	{% if showForm %}
 			<form id = "submit_tweet" action="/submit" method="POST">
-			    <label for="name_field">Name:</label>
-			    <input name="name" type="text" id="name_field" />
+			    <label for="name_field">Name</label>
+			    <input name="name" value = '{{Name}}' type="text" id="name_field" />
 			    <br>
 		    	<label for="text_field">Text:</label>
 		    	<textarea form = "submit_tweet" name="text" type="text" id="text_field" style="width: 250px; resize:none;"> </textarea>

@@ -14,7 +14,7 @@ router.get('/users/:name', function(req, res) {
   var name = req.params.name;
   var tweets = tweetBank.find( {name: name} );
   //res.send(list);
-  res.render( 'index', { title: 'Twitter.js - Posts by '+name, tweets: tweets, seeMore: "See More" } );
+  res.render( 'index', { title: 'Twitter.js - Posts by '+name, tweets: tweets, seeMore: "See More", showForm: true, Name: name} );
 });
 
 router.get('/users/:name/tweets/:id', function(request, response) {
