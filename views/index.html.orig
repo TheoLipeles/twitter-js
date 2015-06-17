@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+
+<h1>{{ title }}</h1>
+<p>This is a bare-bones template.</p>
+<ul>
+	{% for person in people %}
+  		<li>{{ person.name }}</li>
+	{% endfor %}
+</ul>
+=======
 {% extends "layout.html" %}
 
 {% block content %}
@@ -22,4 +32,4 @@
   </div>
     
 {% endblock %}
-
+>>>>>>> 7481f9f379983fd40b0858c8e08f5639a485ba9b

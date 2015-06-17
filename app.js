@@ -2,7 +2,7 @@
 var express = require( 'express' );
 var morgan = require('morgan');
 var swig = require('swig');
-var index = require('./routes/index.js')
+var routes = require('./routes/');
 
 
 var app = express();
@@ -16,15 +16,21 @@ swig.setDefaults({cache: false});
 // Log server activity
 app.use(morgan("dev"));
 
-app.get('/', function(request, response){
-	response.send("Hello!");
-})
-app.get('/views', function(request, response, next){
-	var people = [{name: "Full"}, {name: "Stacker"}, {name: "Son"}];
-	response.render('index.html', {title: "Hall of Fame", people: people});
-	//response.send("Welcome to views");
 
-})
+app.use('/', routes);
+
+app.use(express.static(__dirname + '/public'));
+
+
+//// Old Routes
+// app.get('/', function(request, response){
+// 	response.send("Hello!");
+// })
+// app.get('/views', function(request, response){
+// 	var people = [{name: "Full"}, {name: "Stacker"}, {name: "Son"}];
+// 	response.render('index.html', {title: "Hall of Fame", people: people});
+// 	//response.send("Welcome to views");
+// })
 
 app.listen(3000, function() {
 	console.log("App listening");
