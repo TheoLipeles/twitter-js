@@ -4,12 +4,9 @@ var _ = require('underscore');
 var data = [];
 
 var add = function (name, text) {
-<<<<<<< HEAD
-  data.push({ name: name, text: text, id: new Buffer(text)});
-=======
-	var id = generateId(name, text);
+  var id = generateId(name, text);
 	data.push({ name: name, text: text , id:id });
->>>>>>> origin
+
 };
 
 var list = function () {
