@@ -58,7 +58,7 @@ module.exports = function(io){
     io.sockets.emit('new_tweet', tweets);
 
     //response.render( 'index', { title: "New post by " + request.body.name, tweets: tweets, seeMore: "", showForm: false } );
-    })
+    });
   return router;
 };
 
