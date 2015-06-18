@@ -88,20 +88,20 @@
     var socket = io.connect();
 
     // When 'new_tweet' events are fired, do something with the packaged tweet
+    
+
     socket.on('new_tweet', function (tweet) { 
+      //HOW DO YOU CLOSE A SOCKET?
       var tweet = tweet[tweet.length-1];
       console.log(tweet);
       var name = tweet.name;
       var id = tweet.id;
       var text = tweet.text;
-      var twootLi = '<a href="/users/' + tweet.name+ '">'+tweet.name+ '</a></strong><br>' + tweet.text + '<a href="/users/'+tweet.name+'/tweets/' + tweet.id + '"> See More </a><br> <a href="#"> Re-tweet </a><br>';
+      var twootLi = '<strong><a href="/users/' + tweet.name+ '">'+tweet.name+ '</a></strong><br>' + tweet.text + '<a href="/users/'+tweet.name+'/tweets/' + tweet.id + '"> See More </a><br> <a href="#"> Re-tweet </a>';
       var liToAdd = document.createElement("li");
+      var br = document.createElement("br");
       liToAdd.innerHTML = twootLi;
-      document.getElementById('tweets').appendChild(liToAdd);
-
-      //ADD WHAT YOU GOT FROM GREG'S SLACK
-      //alert('Refreshing... check the console...');
-      // some logic to add the new tweet to the DOM…
-    }); 
+      document.getElementById('tweets').appendChild(liToAdd).appendChild(br);
+    });
   </script>
 </html>
