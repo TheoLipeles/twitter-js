@@ -3,7 +3,7 @@ var express = require( 'express' );
 var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes/');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var socketio = require('socket.io');
 
 //Setup server
