@@ -4,10 +4,14 @@ var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes/');
 var bodyParser = require('body-parser')
-
+var socketio = require('socket.io');
 
 //Setup server
 var app = express();
+var server = app.listen(3000, function() {
+	console.log("App listening");
+});
+var io = socketio.listen(server);
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
@@ -19,9 +23,7 @@ swig.setDefaults({cache: false});
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-
-app.use('/', routes);
+app.use('/', routes(io));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -36,6 +38,17 @@ app.use(express.static(__dirname + '/public'));
 // 	//response.send("Welcome to views");
 // })
 
-app.listen(3000, function() {
-	console.log("App listening");
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,7 +25,7 @@
     <div class="col-md-9">
     <h2> Tweet Stream </h2>
     <br>
-    	<ul>
+    	<ul id = "tweets">
 	      <!-- display tweets here -->
 	      {% for tweet in tweets %}
 	        <li><strong><a href="/users/{{tweet.name}}">{{tweet.name}}</a></strong><br>{{tweet.text}} <a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{ seeMore }}</a><br> <a href='#'> Re-tweet </a></li><br>
