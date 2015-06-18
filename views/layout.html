@@ -92,7 +92,7 @@
 
     socket.on('new_tweet', function (tweet) { 
       //HOW DO YOU CLOSE A SOCKET?
-      var tweet = tweet[tweet.length-1];
+      tweet = tweet[tweet.length-1];
       console.log(tweet);
       var name = tweet.name;
       var id = tweet.id;
